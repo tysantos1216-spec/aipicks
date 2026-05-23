@@ -1,0 +1,30 @@
+import streamlit as st
+import pandas as pd
+import os
+
+st.title("🏀 AI +EV NBA Indicator")
+
+data_path = "data/processed.csv"
+
+if os.path.exists(data_path):
+    df = pd.read_csv(data_path)
+    
+    if not df.empty and 'edge' in df.columns:
+        st.subheader("🚀 Live Betting Edge (Today's Games)")
+        
+        # Instead of style.applymap, use column_config for a professional look
+        st.dataframe(
+            df,
+            column_config={
+                "edge": st.column_config.NumberColumn(
+                    "Edge %",
+                    format="%.2f%%",
+                    help="The calculated betting edge"
+                ),
+            },
+            use_container_width=True
+        )
+    else:
+        st.info("The file exists but is empty or missing data.")
+else:
+    st.warning("⚠️ Data file not found. The scraper is currently processing live odds...")
