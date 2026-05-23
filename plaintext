@@ -5,3 +5,8 @@
 ├── scraper.py           # API data fetcher
 ├── analyze.py           # +EV calculation logic
 └── requirements.txt     # pandas, streamlit, requests
+streamlit
+pandas
+requests
+balldontlie
+streamlit-autorefresh

@@ -20,3 +20,12 @@ def get_live_nba_data():
 games_df, odds_df = get_live_nba_data()
 games_df.to_csv("data/games.csv")
 odds_df.to_csv("data/odds.csv")
+import requests
+import os
+
+def get_nba_games(date):
+    api_key = os.getenv("API_KEY") # Use GitHub Secrets for this
+    url = f"https://api.balldontlie.io/nba/v1/games?dates[]={date}"
+    headers = {"Authorization": api_key}
+    response = requests.get(url, headers=headers)
+    return response.json()
