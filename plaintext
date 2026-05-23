@@ -1,0 +1,7 @@
+/betting-engine
+├── .github/workflows/   # Automated triggers
+├── data/                # Where your processed CSVs live
+├── app.py               # Your Streamlit dashboard
+├── scraper.py           # API data fetcher
+├── analyze.py           # +EV calculation logic
+└── requirements.txt     # pandas, streamlit, requests
