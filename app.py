@@ -92,9 +92,13 @@ def show_live_predictions():
         st.info("Analysis engine is currently processing live odds...")
 
 # Call this in your main layout
-show_live_predictions()def color_edge(val):
+show_live_predictions()
+
+def color_edge(val):
+    # Your function logic here
     color = 'green' if val > 5 else 'orange' if val > 0 else 'red'
     return f'color: {color}'
+    
 
 st.dataframe(df.style.applymap(color_edge, subset=['edge']))
 import streamlit as st
